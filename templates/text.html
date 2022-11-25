@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>text/URL</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="main.css"/>
+
+</head>
+<style>
+    body {font-family: "Lato", sans-serif}
+</style>
+<body>
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="/" class="w3-bar-item w3-button w3-padding-large">textExpert</a>
+      <a  href = "/pdd" class="w3-padding-large w3-hover-red w3-hide-small w3-right" style="text-decoration: none";>Extract From File</a>
+    </div>
+    </div>
+    <div class="w3-content" style="max-width:2000px;margin-top:46px">
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="b">
+      {% if itsy %}
+    <div>
+
+        <span id="use" class="date" style="text-align: center;background-color: black; color:#FFF0F5";>{{ op }}</span>
+         <textarea>{{ itsy }}</textarea>
+        </div>
+    <br>
+    {% endif %}
+      <form action="{{ url_for('predict')}}"method="post">
+<textarea type="text" name="iptext" placeholder="text/url" required="required"></textarea>
+      <p style="font-style: italic;color:#A9A9A9;"> Choose the input type!</p>
+    <div class="w3-row w3-padding-32">
+      <div class="w3-third">
+        <p></p>
+          <select style="color: #FFF0F5	;padding: 10px; background:#000000; border:none, border: 2px solid #ccc;" name="contype">
+                    			<option>Text</option>
+                    			<option>URL</option>
+                			</select>
+      </div>
+      <div class="w3-third">
+        <p></p>
+      </div>
+      <div class="w3-third">
+        <p></p>
+
+          <select style="color: #FFF0F5	;padding: 10px; background:#000000; border:none, border: 2px solid #ccc;" name="operation">
+                    			<option>Keywords</option>
+                    			<option>Summary</option>
+                			</select>
+      </div>
+      </div>
+<button class="button-4" role="button">Extract</button>
+          </form>
+
+      </div>
+    </div>
+
+
+
+
+
+</body>
+</html>
